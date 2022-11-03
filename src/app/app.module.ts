@@ -48,6 +48,8 @@ import { NotificationDropdownComponent } from "./components/dropdowns/notificati
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
 import { MaterialImportsModule } from "./modules/material-imports.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MoviesComponent } from './views/movies/movies.component';
 
 @NgModule({
   declarations: [
@@ -85,8 +87,9 @@ import { MaterialImportsModule } from "./modules/material-imports.module";
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+    MoviesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule,MaterialImportsModule],
+  imports: [BrowserModule, AppRoutingModule,MaterialImportsModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
