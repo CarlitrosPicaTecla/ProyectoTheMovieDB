@@ -47,7 +47,6 @@ import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
-import { MaterialImportsModule } from "./modules/material-imports.module";
 
 @NgModule({
   declarations: [
@@ -86,7 +85,7 @@ import { MaterialImportsModule } from "./modules/material-imports.module";
     LandingComponent,
     ProfileComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule,MaterialImportsModule],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
