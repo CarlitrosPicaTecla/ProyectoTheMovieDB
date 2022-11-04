@@ -17,32 +17,12 @@ export class LoginComponent implements OnInit {
     private authService: AuthService
   ) {}
 
-  ngOnInit(): void {
-    this.route.queryParams.subscribe((qParams) => {
-      const ap = qParams['approved'];
-      const rToken = qParams['request_token'];
-      this.approved = ap == 'true' ? true : false;
-
-      if (this.approved) {
-        let session = new CreateSessionDto();
-        session.request_token = rToken;
-        this.authService.createSession(session).subscribe((resp) => {
-          localStorage.setItem('session_id', resp.session_id);
-          console.log('Session id: ' + resp.session_id);
-        });
-      } else {
-        if (localStorage.getItem('session_id') != null) {
-          console.log('Session id: ' + localStorage.getItem('session_id'));
-          this.approved = true;
-        }
-      }
-    });
-  }
+  ngOnInit(): void {  }
 
   requestToken() {
     this.authService.createRequestToken().subscribe((resp) => {
       this.reqToken = resp.request_token;
-      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/home`;
+      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/landing`;
     });
   }
 
