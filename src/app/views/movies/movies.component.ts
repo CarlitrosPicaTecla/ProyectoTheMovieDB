@@ -7,8 +7,6 @@ import { MoviesService } from 'src/app/services/movies.service';
   templateUrl: './movies.component.html',
 })
 export class MoviesComponent implements OnInit {
-
-
   movieList: Movie[]=[];
   pageActual: number=1;
   numPagesTotal: number=0;
@@ -16,11 +14,9 @@ export class MoviesComponent implements OnInit {
 
   constructor(private movieservice : MoviesService) { }
 
-
-
   ngOnInit(): void {
+    this.getMoviePage(this.pageActual);
   }
-
 
   nextPage() {
     if (this.pageActual < this.numPagesTotal) {
@@ -49,7 +45,6 @@ export class MoviesComponent implements OnInit {
   }
 
   getMovie(id : number){
-
     this.movieservice.getMovie(id).subscribe((resp)=>{
       this.movieList=resp.results
 
@@ -60,5 +55,4 @@ export class MoviesComponent implements OnInit {
     let id = movie.poster_path;
     return `https://image.tmdb.org/t/p/w500/${id}`;
   }
-
 }

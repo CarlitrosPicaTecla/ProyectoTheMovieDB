@@ -1,15 +1,19 @@
-
-
-<div class="w-full md:w-4/12 px-4 mr-auto ml-auto" >
+<div class="mt-48">
+  <button (click)="backPage()"><i class="fas fa-solid fa-arrow-left"></i></button>
+  {{pageActual}} | {{numPagesTotal}}
+  <button (click)="nextPage()"><i class="fas fa-solid fa-arrow-right"></i></button>
+</div>
+<div class="w-full md:w-4/12 px-4 mr-auto ml-auto inline-block" *ngFor="let movie of movieList" >
     <div
-      class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-red-600"
+      class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-red-600" 
+     
     >
       <img
         alt="..."
-        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
-        class="w-full align-middle rounded-t-lg"
+        [src]="showImg(movie)"
+        class="w-full align-middle rounded-t-lg" 
       />
-      <blockquote class="relative p-8 mb-4">
+      <blockquote class="relative p-8 mb-4" >
         <svg
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -21,12 +25,13 @@
             class="text-red-600 fill-current"
           ></polygon>
         </svg>
-        <h4 class="text-xl font-bold text-white"></h4>
+        <h4  class="text-xl font-bold text-white">{{movie.title}}</h4>
         <p class="text-md font-light mt-2 text-white">
-          The Arctic Ocean freezes every winter and much of the sea-ice
-          then thaws every summer, and that process will continue whatever
-          happens.
+              {{movie.overview}}
         </p>
       </blockquote>
+      <button [routerLink]="['/admin/movieinfo', movie.id]" class="bg-200  text-white font-bold py-2 px-2 rounded-full"><i class="fas fa-solid fa-circle-info"></i>
+        Info
+      </button>
     </div>
   </div>
