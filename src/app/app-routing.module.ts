@@ -18,6 +18,8 @@ import { RegisterComponent } from "./views/auth/register/register.component";
 // no layouts views
 import { IndexComponent } from "./views/index/index.component";
 import { LandingComponent } from "./views/landing/landing.component";
+import { MovieInfoComponent } from "./views/movie-info/movie-info.component";
+import { MoviesComponent } from "./views/movies/movies.component";
 import { ProfileComponent } from "./views/profile/profile.component";
 
 const routes: Routes = [
@@ -30,6 +32,8 @@ const routes: Routes = [
       { path: "settings", component: SettingsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
+      { path: "movies", component: MoviesComponent },
+      { path: "movieinfo/:id", component : MovieInfoComponent},
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },
@@ -45,6 +49,7 @@ const routes: Routes = [
   },
   // no layout views
   { path: "profile", component: ProfileComponent },
+  { path: "landing", component: LandingComponent },
   { path: "", component: LandingComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },
 ];

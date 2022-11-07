@@ -47,7 +47,10 @@ import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
-import { HttpClientModule } from "@angular/common/http"
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MoviesComponent } from './views/movies/movies.component';
+import {  HttpClientModule } from "@angular/common/http";
+import { MovieInfoComponent } from './views/movie-info/movie-info.component';
 
 @NgModule({
   declarations: [
@@ -85,8 +88,11 @@ import { HttpClientModule } from "@angular/common/http"
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+    MoviesComponent,
+    MovieInfoComponent,
+
   ],
-  imports: [BrowserModule, AppRoutingModule,HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
