@@ -1,11 +1,14 @@
 <div >
-  <h1 style="margin-top: 7%; font-size: 80px; font-weight: 500">
+  <h1 style="margin-top: 7%; font-size: 80px; font-weight: 500; display: flex;">
     {{ movie.title }}
   </h1>
 
   <img style="width: 16%" [src]="showImg(movie)" />
   <p style="font-size: 20px; font-weigth: 400">
     Fecha de salida: {{ movie.release_date }}
+  </p >
+  <p style="font-size: 20px; font-weigth:400">
+    Valoracion: {{movie.vote_average}}/10
   </p>
 </div>
 <div style="margin-bottom: 10%; width: 60%; ">

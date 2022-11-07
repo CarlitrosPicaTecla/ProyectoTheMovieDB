@@ -54,4 +54,8 @@ export class MoviesComponent implements OnInit {
     let id = movie.poster_path;
     return `https://image.tmdb.org/t/p/w500/${id}`;
   }
+
+  getVoteAvgStyle(movie : Movie){
+    return "width: " + (movie.vote_average*10).toFixed(2) + "%" ;
+  }
 }

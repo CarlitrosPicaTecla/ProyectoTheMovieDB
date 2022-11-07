@@ -30,6 +30,23 @@
               
         </p>
       </blockquote>
+      <div class="flex items-center" style="padding: 20px;">
+        <span class="mr-2" style="font-weight: 600;">{{movie.vote_average*10}}%</span>
+        <div class="relative w-full">
+          <div
+            class="overflow-hidden h-2 text-xs flex rounded bg-emerald-200"
+          >
+
+            <div
+              [style]="getVoteAvgStyle(movie)"
+              class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <button class="rounded-full text-white">
+        <i class="fas fa-solid fa-heart"></i>
+      </button>
       <button [routerLink]="['/admin/movieinfo', movie.id]" class="bg-200  text-white font-bold py-2 px-2 rounded-full"><i class="fas fa-solid fa-circle-info"></i>
         Info
       </button>
