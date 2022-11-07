@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { ApprovedComponent } from "./components/approved/approved.component";
 
 // layouts
 import { AdminComponent } from "./layouts/admin/admin.component";
@@ -45,8 +46,9 @@ const routes: Routes = [
   },
   // no layout views
   { path: "profile", component: ProfileComponent },
-  { path: "", component: LandingComponent },
-  { path: "**", redirectTo: "", pathMatch: "full" },
+  { path: "approved", component: ApprovedComponent },
+  { path: "landing", component: LandingComponent },
+  { path: "", redirectTo:'landing', pathMatch: 'full' },
 ];
 
 @NgModule({

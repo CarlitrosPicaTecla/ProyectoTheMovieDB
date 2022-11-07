@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   deleteSession(deleteSessionDto: DeleteSessionDto): Observable<DeleteResponse>{
-    return this.http.request<DeleteResponse>('delete', `${environment.ApiBaseUrl}/authentication/session/new?api_key=${environment.ApiKey}`,
+    return this.http.request<DeleteResponse>('delete', `${environment.ApiBaseUrl}/authentication/session?api_key=${environment.ApiKey}`,
     {
       body: deleteSessionDto
     }

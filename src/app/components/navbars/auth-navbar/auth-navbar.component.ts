@@ -36,13 +36,12 @@ export class AuthNavbarComponent implements OnInit {
       }
     });
     console.log(this.approved)
-
   }
-
   setNavbarOpen() {
     this.navbarOpen = !this.navbarOpen;
   }
 
+  
   logout() {
     let deleteSessionDto = new DeleteSessionDto();
     if (localStorage.getItem('session_id') != null) {
@@ -51,10 +50,9 @@ export class AuthNavbarComponent implements OnInit {
         if (resp.success) {
           localStorage.removeItem('session_id');
           this.approved = false;
+          this.router.navigate(['/landing']);
         }
       });
-      this.router.navigate(['/landing']);
-
     }
   }
 }
