@@ -9,14 +9,14 @@ import { Actor } from "src/app/models/interfaces/actor.interface";
 
 export class CardProfileComponent implements OnInit {
 
-  @Input() actor:Actor = {} as Actor; 
-  
+  @Input() actor:Actor = {} as Actor;
+  idActor: number
   constructor() {}
 
   ngOnInit(): void {
-
+    this.idActor=this.actor.id
   }
-  
+
   getActorPhoto(actor: Actor) {
     return `https://image.tmdb.org/t/p/w500/${actor.profile_path}`;
   }

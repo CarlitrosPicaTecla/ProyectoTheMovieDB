@@ -6,6 +6,6 @@
     <button (click)="nextPage()">&#62;</button>
   </div>
   <div class="flex flex-wrap" style="margin-left: 15%;">
-    <app-card-profile *ngFor="let actor of listaActores" [actor]="actor" class="float-left w-3/12" style="margin: 50px;"></app-card-profile>
+    <app-card-profile *ngFor="let actor of listaActores" [actor]="actor" class="float-left w-3/12" style="margin: 50px; min-width: 350px;"></app-card-profile>
   </div>
 </div>
