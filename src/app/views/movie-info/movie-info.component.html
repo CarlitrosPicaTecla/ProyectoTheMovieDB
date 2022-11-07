@@ -1,17 +1,39 @@
-<div >
-  <h1 style="margin-top: 7%; font-size: 80px; font-weight: 500; display: flex;">
+<div>
+  <h1 style="margin-top: 7%; font-size: 80px; font-weight: 500; display: flex">
     {{ movie.title }}
   </h1>
 
   <img style="width: 16%" [src]="showImg(movie)" />
   <p style="font-size: 20px; font-weigth: 400">
     Fecha de salida: {{ movie.release_date }}
-  </p >
-  <p style="font-size: 20px; font-weigth:400">
-    Valoracion: {{movie.vote_average}}/10
   </p>
-</div>
-<div style="margin-bottom: 10%; width: 60%; ">
-  <h2 style="font-weight: 500; font-size: 50px">Resumen</h2>
-  <p>{{ movie.overview }}</p>
+  <p style="font-size: 20px; font-weigth: 400">
+    Valoracion: {{ movie.vote_average }}/10
+  </p>
+  <div>
+    <label
+      for="steps-range"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+      >Tu Valoracion: {{ valor }}</label
+    >
+    <input
+      [(ngModel)]="valor"
+      style="width: 15%"
+      id="steps-range"
+      type="range"
+      min="0"
+      max="10"
+      value="5"
+      step="1"
+      class="w-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+    />
+
+  </div>
+  <button (click)="rateMovie(movie.id)" style="background-color: black;" class=" hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+    Button
+  </button>
+  <div style="margin-bottom: 10%; width: 60%">
+    <h2 style="font-weight: 500; font-size: 50px">Resumen</h2>
+    <p>{{ movie.overview }}</p>
+  </div>
 </div>

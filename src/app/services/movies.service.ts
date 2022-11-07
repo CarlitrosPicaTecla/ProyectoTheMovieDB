@@ -21,7 +21,7 @@ export class MoviesService {
     return this.http.get<MovieResponse>(`${environment.ApiBaseUrl}/movie/popular?api_key=${environment.ApiKey}&language=es-ES&page=${page}`);
   }
 
-  public rateMovie(movierated : movieRated, movieId: string): Observable<MovieRatedResponse>{
+  public rateMovie(movierated : movieRated, movieId: number): Observable<MovieRatedResponse>{
     return this.http.post<MovieRatedResponse>(`${environment.ApiBaseUrl}/movie/${movieId}/rating?api_key=${environment.ApiKey}&language=es&session_id=${localStorage.getItem('session_id')}`, movieRated);
   }
 }

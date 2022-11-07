@@ -1,3 +1,3 @@
 export class movieRated{
-    value : number =0;
+    value : number;
 }
