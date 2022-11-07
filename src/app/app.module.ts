@@ -47,10 +47,9 @@ import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
-import { MaterialImportsModule } from "./modules/material-imports.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MoviesComponent } from './views/movies/movies.component';
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import {  HttpClientModule } from "@angular/common/http";
 import { MovieInfoComponent } from './views/movie-info/movie-info.component';
 
 @NgModule({

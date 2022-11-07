@@ -10,6 +10,7 @@ export class PagesDropdownComponent implements OnInit {
   @ViewChild("btnDropdownRef", { static: false }) btnDropdownRef: ElementRef;
   @ViewChild("popoverDropdownRef", { static: false })
   popoverDropdownRef: ElementRef;
+  approved =false
   ngOnInit() {}
   toggleDropdown(event) {
     event.preventDefault();
