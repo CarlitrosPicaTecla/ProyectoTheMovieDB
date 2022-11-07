@@ -10,7 +10,6 @@ export class MoviesComponent implements OnInit {
   movieList: Movie[]=[];
   pageActual: number=1;
   numPagesTotal: number=0;
-  select: Movie | undefined;
 
   constructor(private movieservice : MoviesService) { }
 
