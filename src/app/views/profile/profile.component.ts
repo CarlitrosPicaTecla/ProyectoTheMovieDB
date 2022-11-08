@@ -29,8 +29,8 @@ export class ProfileComponent implements OnInit {
       });
     });
   }
-  getActorPhoto(actor: Actor) {
-    return `https://image.tmdb.org/t/p/w500/${actor.profile_path}`;
+  getActorPhoto() {
+    return `https://image.tmdb.org/t/p/w500/${this.actorDetails.profile_path}`;
   }
   getMovieIMG(cast: Cast) {
     return `https://image.tmdb.org/t/p/w500/${cast.poster_path}`;
