@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { movieRated } from 'src/app/models/dto/movieRated.dto';
 import { Details, Movie } from 'src/app/models/interfaces/movies.interface';
 import { MoviesService } from 'src/app/services/movies.service';
 
@@ -11,6 +12,8 @@ import { MoviesService } from 'src/app/services/movies.service';
 export class MovieInfoComponent implements OnInit {
   
   movie: Movie = {} as Movie;
+  valor : number = 0;
+
   id : number =0;
   key:string;
   url:string;
@@ -20,8 +23,11 @@ export class MovieInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((res)=>
-    this.id = res ["id"]);
+    this.movie.id = res ["id"]);
 
+
+    this.getInfo(this.movie.id);
+    
     this.getInfo(this.id);
 
         this.movieservice.getTrailerResponse(this.id.toString()).subscribe(a => {
@@ -44,9 +50,20 @@ export class MovieInfoComponent implements OnInit {
     return `https://image.tmdb.org/t/p/w500/${id}`;
   }
 
+  rateMovie(){
+
+    let movierated =  new movieRated();
+    movierated.value=this.valor;
+    this.movieservice.rateMovie(movierated, this.movie.id).subscribe(res =>{
+      if(res.success){
+
+        alert('furula');
+      }
+    });
+  }
+
   getTrailerVideo(v: Details) {
     let url = `https://www.youtube.com/embed/${v.key}`
-
     return this.sanitazer.bypassSecurityTrustResourceUrl(url)
   }
 }

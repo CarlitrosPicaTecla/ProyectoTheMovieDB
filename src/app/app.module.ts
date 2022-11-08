@@ -49,6 +49,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MoviesComponent } from './views/movies/movies.component';
 import {  HttpClientModule } from "@angular/common/http";
 import { MovieInfoComponent } from './views/movie-info/movie-info.component';
+import { MisValoradasComponent } from './views/mis-valoradas/mis-valoradas.component';
+import { FormsModule } from "@angular/forms";
+import { MisFavoritasComponent } from './views/mis-favoritas/mis-favoritas.component';
 
 @NgModule({
   declarations: [
@@ -86,9 +89,11 @@ import { MovieInfoComponent } from './views/movie-info/movie-info.component';
     ProfileComponent,
     MoviesComponent,
     MovieInfoComponent,
+    MisValoradasComponent,
+    MisFavoritasComponent,
 
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

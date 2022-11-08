@@ -1,18 +1,16 @@
-
-
 <div class="mt-48">
-  <button (click)="backPage()">
-    <i class="fas fa-solid fa-arrow-left"></i>
-  </button>
-  {{ pageActual }} | {{ numPagesTotal }}
-  <button (click)="nextPage()">
-    <i class="fas fa-solid fa-arrow-right"></i>
-  </button>
-</div>
-
-<div
+    <button (click)="backPage()">
+      <i class="fas fa-solid fa-arrow-left"></i>
+    </button>
+    {{ pageActual }} | {{ numPagesTotal }}
+    <button (click)="nextPage()">
+      <i class="fas fa-solid fa-arrow-right"></i>
+    </button>
+  </div>
+  
+  <div
   class="w-full md:w-4/12 px-4 mr-auto ml-auto inline-block"
-  *ngFor="let movie of movieList"
+  *ngFor="let movieRated of ratedMoviesList"
 >
   <div
     class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-red-600"
@@ -20,7 +18,7 @@
   >
     <img
       alt="..."
-      [src]="showImg(movie)"
+      [src]="showImg(movieRated)"
       class="w-full align-middle rounded-t-lg"
     />
     <blockquote class="relative p-8 mb-4">
@@ -35,31 +33,21 @@
           class="text-red-600 fill-current"
         ></polygon>
       </svg>
-      <h4 class="text-xl font-bold text-white">{{ movie.title }}</h4>
+      <h4 class="text-xl font-bold text-white">{{ movieRated.title }}</h4>
       <p class="text-md font-light mt-2 text-white"></p>
     </blockquote>
     <div class="flex items-center" style="padding: 20px">
       <span class="mr-2" style="font-weight: 600"
-        >{{ movie.vote_average * 10 }}%</span
+        >{{ movieRated.vote_average * 10 }}%</span
       >
       <div class="relative w-full">
         <div class="overflow-hidden h-2 text-xs flex rounded bg-emerald-200">
           <div
-            [style]="getVoteAvgStyle(movie)"
+            [style]="getVoteAvgStyle(movieRated)"
             class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500"
           ></div>
         </div>
       </div>
     </div>
-    <button class="rounded-full text-white" (click)="markFavorite(movie.id)">
-      <i class="fas fa-solid fa-heart"></i>
-    </button>
-    <button
-      [routerLink]="['/admin/movieinfo', movie.id]"
-      class="bg-200 text-white font-bold py-2 px-2 rounded-full"
-    >
-      <i class="fas fa-solid fa-circle-info"></i>
-      Info
-    </button>
   </div>
 </div>
