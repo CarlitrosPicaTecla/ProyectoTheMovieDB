@@ -16,7 +16,6 @@ import { LoginComponent } from "./views/auth/login/login.component";
 import { RegisterComponent } from "./views/auth/register/register.component";
 
 // no layouts views
-import { IndexComponent } from "./views/index/index.component";
 import { LandingComponent } from "./views/landing/landing.component";
 import { MovieInfoComponent } from "./views/movie-info/movie-info.component";
 import { MoviesComponent } from "./views/movies/movies.component";
@@ -48,7 +47,7 @@ const routes: Routes = [
     ],
   },
   // no layout views
-  { path: "profile", component: ProfileComponent },
+  { path: "profile/:id", component: ProfileComponent },
   { path: "landing", component: LandingComponent },
   { path: "", component: LandingComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },
