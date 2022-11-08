@@ -64,7 +64,6 @@ export class MovieInfoComponent implements OnInit {
 
   getTrailerVideo(v: Details) {
     let url = `https://www.youtube.com/embed/${v.key}`
-
     return this.sanitazer.bypassSecurityTrustResourceUrl(url)
   }
 }
