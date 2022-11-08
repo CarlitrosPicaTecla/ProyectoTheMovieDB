@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { CreateSessionDto } from "src/app/models/dto/createSession.dto";
-import { DeleteSessionDto } from "src/app/models/dto/deleteSession.dto";
 import { AuthService } from "src/app/services/auth.service";
 
 @Component({

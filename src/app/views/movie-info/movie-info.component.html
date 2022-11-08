@@ -2,7 +2,6 @@
   <h1 style="margin-top: 7%; font-size: 80px; font-weight: 500; display: flex">
     {{ movie.title }}
   </h1>
-
   <img style="width: 16%" [src]="showImg(movie)" />
   <p style="font-size: 20px; font-weigth: 400;">
     Fecha de salida: {{ movie.release_date }}
@@ -31,8 +30,22 @@
   <button (click)="rateMovie()" style="background-color: black;" class=" hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
     Button
   </button>
-  <div style="margin-bottom: 10%; width: 60%">
-    <h2 style="font-weight: 500; font-size: 50px">Resumen</h2>
-    <p>{{ movie.overview }}</p>
-  </div>
 </div>
+<div style="margin-bottom: 10%; width: 60%; ">
+  <h2 style="font-weight: 500; font-size: 50px">Resumen</h2>
+  <p>{{ movie.overview }}</p>
+  <br>
+  <br>
+  <iframe
+  *ngFor="let video of videos"
+  width="560"
+  height="315"
+  [src]="getTrailerVideo(video)"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+  style="margin: 0 20px"
+></iframe>
+</div>
+

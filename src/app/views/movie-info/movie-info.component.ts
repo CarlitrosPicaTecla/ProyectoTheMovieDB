@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { movieRated } from 'src/app/models/dto/movieRated.dto';
-import { Movie } from 'src/app/models/interfaces/movies.interface';
+import { Details, Movie } from 'src/app/models/interfaces/movies.interface';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -9,10 +10,16 @@ import { MoviesService } from 'src/app/services/movies.service';
   templateUrl: './movie-info.component.html',
 })
 export class MovieInfoComponent implements OnInit {
+  
   movie: Movie = {} as Movie;
   valor : number = 0;
 
-  constructor(private movieservice : MoviesService,private route : ActivatedRoute) { }
+  id : number =0;
+  key:string;
+  url:string;
+  videos: Details []=[];
+
+  constructor(private movieservice : MoviesService, private route : ActivatedRoute,private sanitazer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((res)=>
@@ -21,6 +28,15 @@ export class MovieInfoComponent implements OnInit {
 
     this.getInfo(this.movie.id);
     
+    this.getInfo(this.id);
+
+        this.movieservice.getTrailerResponse(this.id.toString()).subscribe(a => {
+      a.results.filter(b => {
+        if (b.type == 'Trailer') {
+          this.videos.push(b)
+        }
+      })
+    })
   }
 
   getInfo(id : number) {
@@ -46,4 +62,9 @@ export class MovieInfoComponent implements OnInit {
     });
   }
 
+  getTrailerVideo(v: Details) {
+    let url = `https://www.youtube.com/embed/${v.key}`
+
+    return this.sanitazer.bypassSecurityTrustResourceUrl(url)
+  }
 }

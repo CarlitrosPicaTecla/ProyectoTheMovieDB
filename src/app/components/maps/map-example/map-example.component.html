@@ -1,6 +1,10 @@
-<div
-  id="map-canvas"
-  class="relative w-full rounded h-600-px"
-  data-lat="40.748817"
-  data-lng="-73.985428"
-></div>
+<div>
+  <div class="flex flex-wrap" style="margin-left: 10%; margin-top: 75px; ">
+    <app-card-profile *ngFor="let actor of listaActores" [actor]="actor" class="float-left w-3/12" style="margin: 50px; min-width: 350px;"></app-card-profile>
+  </div>
+  <div style="margin-top: 100px;">
+    <button (click)="backPage()" *ngIf="pageActual > 0">&#60;</button>
+    {{pageActual + 1}}
+    <button (click)="nextPage()">&#62;</button>
+  </div>
+</div>

@@ -1,3 +1,4 @@
+import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 import { Component, Input, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CreateSessionDto } from "src/app/models/dto/createSession.dto";
@@ -16,11 +17,15 @@ export class AuthNavbarComponent implements OnInit {
   constructor(private authService: AuthService,private route: ActivatedRoute,private router: Router, private accountservice : Account) {}
 
   ngOnInit(): void {
-    console.log(this.approved)
+
     this.route.queryParams.subscribe((qParams) => {
       const ap = qParams['approved'];
       const rToken = qParams['request_token'];
       this.approved = ap == 'true' ? true : false;
+
+      if (localStorage.getItem('session_id') != null) {
+        this.approved=true;
+      }
 
       if (this.approved) {
         let session = new CreateSessionDto();
@@ -48,6 +53,7 @@ export class AuthNavbarComponent implements OnInit {
   }
 
   logout() {
+    this.approved=false
     let deleteSessionDto = new DeleteSessionDto();
     if (localStorage.getItem('session_id') != null) {
       deleteSessionDto.session_id = localStorage.getItem('session_id')!;

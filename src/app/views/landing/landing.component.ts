@@ -14,6 +14,8 @@ login:boolean = false;
 approved: boolean;
 
   ngOnInit(): void {
+
+
     this.route.queryParams.subscribe((qParams) => {
       const ap = qParams['approved'];
       const rToken = qParams['request_token'];

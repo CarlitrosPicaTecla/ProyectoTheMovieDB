@@ -2,12 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { favMovies } from '../models/dto/favMovies.dto';
 import { movieRated } from '../models/dto/movieRated.dto';
-import { favMoviesResponse } from '../models/interfaces/favMovies.interface';
 import { MovieRatedResponse } from '../models/interfaces/movieRated.interface';
-import { Movie, MovieResponse } from '../models/interfaces/movies.interface';
-import { MoviesFavResponse } from '../models/interfaces/moviesFav.interface';
+import { Movie, MovieResponse, TrailerResponse } from '../models/interfaces/movies.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +25,9 @@ export class MoviesService {
     return this.http.post<MovieRatedResponse>(`${environment.ApiBaseUrl}/movie/${movieId}/rating?api_key=${environment.ApiKey}&language=es&session_id=${localStorage.getItem('session_id')}`, movierated);
   }
 
+
+  public getTrailerResponse(idFilm : String): Observable<TrailerResponse>{
+    return this.http.get<TrailerResponse>(`${environment.ApiBaseUrl}/movie/${idFilm}/videos?api_key=${environment.ApiKey}`)
+  }
 
 }

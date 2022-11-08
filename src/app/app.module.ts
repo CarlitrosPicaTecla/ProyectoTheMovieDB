@@ -9,8 +9,6 @@ import { AdminComponent } from "./layouts/admin/admin.component";
 import { AuthComponent } from "./layouts/auth/auth.component";
 
 // admin views
-import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
-import { MapsComponent } from "./views/admin/maps/maps.component";
 import { SettingsComponent } from "./views/admin/settings/settings.component";
 import { TablesComponent } from "./views/admin/tables/tables.component";
 
@@ -58,7 +56,6 @@ import { MisFavoritasComponent } from './views/mis-favoritas/mis-favoritas.compo
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
     CardBarChartComponent,
     CardLineChartComponent,
     IndexDropdownComponent,
@@ -83,7 +80,6 @@ import { MisFavoritasComponent } from './views/mis-favoritas/mis-favoritas.compo
     IndexNavbarComponent,
     AdminComponent,
     AuthComponent,
-    MapsComponent,
     SettingsComponent,
     TablesComponent,
     LoginComponent,
