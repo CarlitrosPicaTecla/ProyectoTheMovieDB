@@ -4,10 +4,10 @@
   </h1>
 
   <img style="width: 16%" [src]="showImg(movie)" />
-  <p style="font-size: 20px; font-weigth: 400">
+  <p style="font-size: 20px; font-weigth: 400;">
     Fecha de salida: {{ movie.release_date }}
   </p>
-  <p style="font-size: 20px; font-weigth: 400">
+  <p style="font-size: 20px; font-weigth: 400;">
     Valoracion: {{ movie.vote_average }}/10
   </p>
   <div>
@@ -21,15 +21,14 @@
       style="width: 15%"
       id="steps-range"
       type="range"
-      min="0"
+      min="1"
       max="10"
-      value="5"
       step="1"
       class="w-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
     />
 
   </div>
-  <button (click)="rateMovie(movie.id)" style="background-color: black;" class=" hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+  <button (click)="rateMovie()" style="background-color: black;" class=" hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
     Button
   </button>
   <div style="margin-bottom: 10%; width: 60%">

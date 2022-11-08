@@ -10,17 +10,16 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class MovieInfoComponent implements OnInit {
   movie: Movie = {} as Movie;
-  id : number =0;
-  valor : number;
+  valor : number = 0;
 
   constructor(private movieservice : MoviesService,private route : ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((res)=>
-    this.id = res ["id"]);
+    this.movie.id = res ["id"]);
 
-    this.valor=0;
-    this.getInfo(this.id);
+
+    this.getInfo(this.movie.id);
     
   }
 
@@ -35,13 +34,11 @@ export class MovieInfoComponent implements OnInit {
     return `https://image.tmdb.org/t/p/w500/${id}`;
   }
 
-  rateMovie( id : number){
+  rateMovie(){
 
-
-
-    let movierated : movieRated;
+    let movierated =  new movieRated();
     movierated.value=this.valor;
-    this.movieservice.rateMovie(movierated, id).subscribe(res =>{
+    this.movieservice.rateMovie(movierated, this.movie.id).subscribe(res =>{
       if(res.success){
 
         alert('furula');

@@ -53,6 +53,7 @@ import {  HttpClientModule } from "@angular/common/http";
 import { MovieInfoComponent } from './views/movie-info/movie-info.component';
 import { MisValoradasComponent } from './views/mis-valoradas/mis-valoradas.component';
 import { FormsModule } from "@angular/forms";
+import { MisFavoritasComponent } from './views/mis-favoritas/mis-favoritas.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { FormsModule } from "@angular/forms";
     MoviesComponent,
     MovieInfoComponent,
     MisValoradasComponent,
+    MisFavoritasComponent,
 
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule, FormsModule],

@@ -1,1 +1,53 @@
-<p>mis-valoradas works!</p>
+<div class="mt-48">
+    <button (click)="backPage()">
+      <i class="fas fa-solid fa-arrow-left"></i>
+    </button>
+    {{ pageActual }} | {{ numPagesTotal }}
+    <button (click)="nextPage()">
+      <i class="fas fa-solid fa-arrow-right"></i>
+    </button>
+  </div>
+  
+  <div
+  class="w-full md:w-4/12 px-4 mr-auto ml-auto inline-block"
+  *ngFor="let movieRated of ratedMoviesList"
+>
+  <div
+    class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-red-600"
+    style="width: 75%"
+  >
+    <img
+      alt="..."
+      [src]="showImg(movieRated)"
+      class="w-full align-middle rounded-t-lg"
+    />
+    <blockquote class="relative p-8 mb-4">
+      <svg
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 583 95"
+        class="absolute left-0 w-full block h-95-px -top-94-px"
+      >
+        <polygon
+          points="-30,95 583,95 583,65"
+          class="text-red-600 fill-current"
+        ></polygon>
+      </svg>
+      <h4 class="text-xl font-bold text-white">{{ movieRated.title }}</h4>
+      <p class="text-md font-light mt-2 text-white"></p>
+    </blockquote>
+    <div class="flex items-center" style="padding: 20px">
+      <span class="mr-2" style="font-weight: 600"
+        >{{ movieRated.vote_average * 10 }}%</span
+      >
+      <div class="relative w-full">
+        <div class="overflow-hidden h-2 text-xs flex rounded bg-emerald-200">
+          <div
+            [style]="getVoteAvgStyle(movieRated)"
+            class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

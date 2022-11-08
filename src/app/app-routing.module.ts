@@ -18,6 +18,7 @@ import { RegisterComponent } from "./views/auth/register/register.component";
 // no layouts views
 import { IndexComponent } from "./views/index/index.component";
 import { LandingComponent } from "./views/landing/landing.component";
+import { MisFavoritasComponent } from "./views/mis-favoritas/mis-favoritas.component";
 import { MisValoradasComponent } from "./views/mis-valoradas/mis-valoradas.component";
 import { MovieInfoComponent } from "./views/movie-info/movie-info.component";
 import { MoviesComponent } from "./views/movies/movies.component";
@@ -36,6 +37,7 @@ const routes: Routes = [
       { path: "movies", component: MoviesComponent },
       { path: "movieinfo/:id", component : MovieInfoComponent},
       { path: "misvaloradas", component : MisValoradasComponent},
+      { path: "misfavoritas", component : MisFavoritasComponent},
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CreateSessionDto } from "src/app/models/dto/createSession.dto";
 import { DeleteSessionDto } from "src/app/models/dto/deleteSession.dto";
+import { Account } from "src/app/services/account.service";
 import { AuthService } from "src/app/services/auth.service";
 
 @Component({
@@ -12,7 +13,7 @@ export class AuthNavbarComponent implements OnInit {
  navbarOpen = false;
  approved: boolean ;
  login:boolean = false;
-  constructor(private authService: AuthService,private route: ActivatedRoute,private router: Router) {}
+  constructor(private authService: AuthService,private route: ActivatedRoute,private router: Router, private accountservice : Account) {}
 
   ngOnInit(): void {
     console.log(this.approved)
@@ -27,6 +28,9 @@ export class AuthNavbarComponent implements OnInit {
         this.authService.createSession(session).subscribe((resp) => {
           localStorage.setItem('session_id', resp.session_id);
           console.log('Session id: ' + resp.session_id);
+          this.accountservice.getDetails().subscribe((res) => {
+            localStorage.setItem('account_id' , String(res.id))
+          });
         });
       } else {
         if (localStorage.getItem('session_id') != null) {
