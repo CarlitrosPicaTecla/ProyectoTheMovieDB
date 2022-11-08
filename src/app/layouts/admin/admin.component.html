@@ -1,11 +1,9 @@
 <div>
+  <app-auth-navbar></app-auth-navbar >
   <app-sidebar></app-sidebar>
   <div class="relative md:ml-64 bg-blueGray-100">
-    <button (click)="backPage()" *ngIf="pageActual > 0">&#60;</button>
-    {{pageActual + 1}}
-    <button (click)="nextPage()">&#62;</button>
-  </div>
-  <div class="flex flex-wrap" style="margin-left: 15%;">
-    <app-card-profile *ngFor="let actor of listaActores" [actor]="actor" class="float-left w-3/12" style="margin: 50px; min-width: 350px;"></app-card-profile>
+    <div class="px-4 md:px-10 mx-auto w-full -m-24">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
