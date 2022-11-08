@@ -27,7 +27,6 @@ import { AdminNavbarComponent } from "./components/navbars/admin-navbar/admin-na
 import { AuthNavbarComponent } from "./components/navbars/auth-navbar/auth-navbar.component";
 import { CardBarChartComponent } from "./components/cards/card-bar-chart/card-bar-chart.component";
 import { CardLineChartComponent } from "./components/cards/card-line-chart/card-line-chart.component";
-import { CardPageVisitsComponent } from "./components/cards/card-page-visits/card-page-visits.component";
 import { CardProfileComponent } from "./components/cards/card-profile/card-profile.component";
 import { CardSettingsComponent } from "./components/cards/card-settings/card-settings.component";
 import { CardSocialTrafficComponent } from "./components/cards/card-social-traffic/card-social-traffic.component";
@@ -67,7 +66,6 @@ import { MisFavoritasComponent } from './views/mis-favoritas/mis-favoritas.compo
     FooterComponent,
     FooterSmallComponent,
     FooterAdminComponent,
-    CardPageVisitsComponent,
     CardProfileComponent,
     CardSettingsComponent,
     CardSocialTrafficComponent,
